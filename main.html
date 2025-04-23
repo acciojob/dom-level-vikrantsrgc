@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>DOM Level Finder</title>
 </head>
 <body>
-	<ul>
-		<li>Item 1</li>
-		<li>Item 2</li>
-		<li>Item 3</li>
-		<li>Item 4</li>
-		<li id="level">Item 5</li>
-		<li>Item 6</li>
-		<li>Item 7</li>
-		<li>Item 8</li>
-		<li>Item 9</li>
-		<li>Item 10</li>
-	</ul>
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <div>
+    <section>
+      <article>
+        <p id="level">Target Element</p>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const targetElement = document.getElementById("level");
+      let level = 0;
+      let current = targetElement;
+
+      while (current) {
+        level++;
+        current = current.parentElement;
+      }
+
+      alert(`The level of the element is: ${level}`);
+    };
+  </script>
+
 </body>
 </html>
